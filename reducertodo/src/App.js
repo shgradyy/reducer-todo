@@ -1,17 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Form } from './components/form';
+import Todo from './components/todolist';
+import { simpReducer, initialTodoState } from './reducers/reducerComp';
 import './App.css';
 
 function App() {
+  const [state, dispatch] = useReducer(initialTodoState, simpReducer);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Welcome to Reducer Todo
-        </p>
-        
-      </header>
+      <Form dispatch={dispatch} />
+      <Todo />
     </div>
   );
 }
